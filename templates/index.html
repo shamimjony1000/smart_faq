@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogga FAQ Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='robot-assistant.png') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn">
+                    <i class="bi bi-plus-lg"></i> New chat
+                </button>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="chat-history">
+                    <h6 class="history-heading">Today</h6>
+                    <div class="history-item active">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span>Arogga FAQ Assistant</span>
+                    </div>
+                    <div class="history-item">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span>Payment Methods</span>
+                    </div>
+                    <div class="history-item">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span>Return Policy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="bi bi-person-circle"></i>
+                    <span>{{ session.username }}</span>
+                    <a href="{{ url_for('logout') }}" class="logout-btn" title="Logout">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <button class="mobile-sidebar-toggle" id="mobileSidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <img src="{{ url_for('static', filename='robot-assistant.png') }}" alt="Arogga Logo">
+                    Arogga FAQ Assistant
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="bi bi-sun-fill" id="lightIcon"></i>
+                        <i class="bi bi-moon-fill" id="darkIcon" style="display: none;"></i>
+                    </button>
+                </div>
+                <div class="chat-body" id="chatBody">
+                    <!-- Welcome message will be in its own container -->
+                    <div class="message-container bot-container" id="welcomeContainer">
+                        <div class="message-content">
+                            <div class="message bot-message" id="welcomeMessage"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="suggestion-chips">
+                    <button class="suggestion-chip" onclick="askQuestion('What is Arogga Cash?')">What is Arogga Cash?</button>
+                    <button class="suggestion-chip" onclick="askQuestion('How to redeem Arogga Cash?')">How to redeem Arogga Cash?</button>
+                    <button class="suggestion-chip" onclick="askQuestion('What payment methods are available?')">Payment methods</button>
+                    <button class="suggestion-chip" onclick="askQuestion('Return policy')">Return policy</button>
+                    <button class="suggestion-chip" onclick="askQuestion('Do you sell single units of medicine?')">Single units of medicine?</button>
+                </div>
+                
+                <div class="loader" id="loader">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="chat-footer">
+                    <form id="questionForm" onsubmit="return false;">
+                        <div class="input-group">
+                            <input type="text" id="questionInput" class="form-control" placeholder="Type your question here..." required>
+                            <button class="btn send-btn" type="submit" onclick="submitQuestion()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

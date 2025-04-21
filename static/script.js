@@ -4,7 +4,7 @@
 let currentConversationId = null;
 
 // Function to create typewriter effect
-function typeWriter(element, text, speed = 30, index = 0) {
+function typeWriter(element, text, speed = 20, index = 0) {
     if (index < text.length) {
         element.innerHTML += text.charAt(index);
         index++;

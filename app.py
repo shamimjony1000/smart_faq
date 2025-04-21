@@ -375,6 +375,36 @@ def create_conversation():
     
     return jsonify({'id': conversation_id, 'title': title})
 
+@app.route('/conversation/<int:conversation_id>/title', methods=['PUT'])
+def update_conversation_title(conversation_id):
+    if not is_logged_in():
+        return jsonify({'error': 'Not logged in'}), 401
+    
+    user_id = session['user_id']
+    data = request.json
+    new_title = data.get('title')
+    
+    if not new_title:
+        return jsonify({'error': 'No title provided'}), 400
+    
+    conn = get_db_connection()
+    
+    # Check if conversation exists and belongs to the user
+    conversation = conn.execute('SELECT * FROM conversations WHERE id = ? AND user_id = ?', 
+                             (conversation_id, user_id)).fetchone()
+    
+    if not conversation:
+        conn.close()
+        return jsonify({'error': 'Conversation not found'}), 404
+    
+    # Update the title
+    conn.execute('UPDATE conversations SET title = ? WHERE id = ?', 
+               (new_title, conversation_id))
+    conn.commit()
+    conn.close()
+    
+    return jsonify({'id': conversation_id, 'title': new_title})
+
 @app.route('/ask', methods=['POST'])
 def ask():
     if request.method == 'POST':

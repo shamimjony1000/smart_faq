@@ -198,7 +198,7 @@ function createNewConversation() {
         url: '/conversation',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({}),
+        data: JSON.stringify({ title: 'New FAQ Conversation' }),
         success: function(response) {
             console.log("New conversation created:", response);
             currentConversationId = response.id;
@@ -338,11 +338,22 @@ function sendQuestionToServer(question, conversationId = null) {
     
     // If no conversation exists, create one first
     if (!conversationId) {
+        // Create a meaningful title from the question
+        let title = question;
+        
+        // Limit title length and add ellipsis if needed
+        if (title.length > 40) {
+            // Try to cut at a word boundary
+            let cutIndex = title.lastIndexOf(' ', 40);
+            if (cutIndex === -1) cutIndex = 40;
+            title = title.substring(0, cutIndex) + '...';
+        }
+        
         $.ajax({
             url: '/conversation',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ title: question.substring(0, 30) + '...' }),
+            data: JSON.stringify({ title: title }),
             success: function(response) {
                 console.log("Created new conversation for question:", response);
                 currentConversationId = response.id;
@@ -375,27 +386,91 @@ function sendQuestionWithConversation(question, conversationId) {
     
     console.log("Request data:", requestData);
     
+    // First, check if this is the first message in the conversation
     $.ajax({
-        url: '/ask',
-        type: 'POST',
-        contentType: 'application/json',
-        data: requestData,
-        success: function(response) {
-            console.log("Received response:", response);
+        url: `/conversation/${conversationId}`,
+        type: 'GET',
+        success: function(conversation) {
+            // If this is the first message (no messages yet), update the title
+            if (conversation.messages.length === 0) {
+                // Create a meaningful title from the question
+                let title = question;
+                
+                // Limit title length and add ellipsis if needed
+                if (title.length > 40) {
+                    // Try to cut at a word boundary
+                    let cutIndex = title.lastIndexOf(' ', 40);
+                    if (cutIndex === -1) cutIndex = 40;
+                    title = title.substring(0, cutIndex) + '...';
+                }
+                
+                // Update the conversation title
+                $.ajax({
+                    url: `/conversation/${conversationId}/title`,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ title: title }),
+                    success: function(response) {
+                        console.log("Updated conversation title:", response);
+                    },
+                    error: function(error) {
+                        console.error("Error updating conversation title:", error);
+                    }
+                });
+            }
             
-            // Hide loader
-            document.getElementById('loader').style.display = 'none';
-            
-            // Add bot response to UI
-            addMessageToUI(response.answer, false);
-            
-            // Update conversation list
-            loadConversations();
+            // Now send the actual question
+            $.ajax({
+                url: '/ask',
+                type: 'POST',
+                contentType: 'application/json',
+                data: requestData,
+                success: function(response) {
+                    console.log("Received response:", response);
+                    
+                    // Hide loader
+                    document.getElementById('loader').style.display = 'none';
+                    
+                    // Add bot response to UI
+                    addMessageToUI(response.answer, false);
+                    
+                    // Update conversation list
+                    loadConversations();
+                },
+                error: function(error) {
+                    console.error("Error from server:", error);
+                    document.getElementById('loader').style.display = 'none';
+                    addMessageToUI('Sorry, I encountered an error. Please try again later.', false);
+                }
+            });
         },
         error: function(error) {
-            console.error("Error from server:", error);
-            document.getElementById('loader').style.display = 'none';
-            addMessageToUI('Sorry, I encountered an error. Please try again later.', false);
+            console.error("Error checking conversation:", error);
+            
+            // If we can't check the conversation, just send the question anyway
+            $.ajax({
+                url: '/ask',
+                type: 'POST',
+                contentType: 'application/json',
+                data: requestData,
+                success: function(response) {
+                    console.log("Received response:", response);
+                    
+                    // Hide loader
+                    document.getElementById('loader').style.display = 'none';
+                    
+                    // Add bot response to UI
+                    addMessageToUI(response.answer, false);
+                    
+                    // Update conversation list
+                    loadConversations();
+                },
+                error: function(error) {
+                    console.error("Error from server:", error);
+                    document.getElementById('loader').style.display = 'none';
+                    addMessageToUI('Sorry, I encountered an error. Please try again later.', false);
+                }
+            });
         }
     });
 }

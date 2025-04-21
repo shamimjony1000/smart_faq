@@ -198,7 +198,7 @@ function createNewConversation() {
         url: '/conversation',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ title: 'New Conversation' }),
+        data: JSON.stringify({}),
         success: function(response) {
             console.log("New conversation created:", response);
             currentConversationId = response.id;

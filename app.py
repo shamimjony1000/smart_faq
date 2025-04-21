@@ -363,7 +363,8 @@ def create_conversation():
     
     user_id = session['user_id']
     data = request.json
-    title = data.get('title', 'New Conversation')
+    current_time = datetime.now().strftime("%b %d, %H:%M")
+    title = data.get('title', f'Conversation - {current_time}')
     
     conn = get_db_connection()
     cursor = conn.cursor()

@@ -21,6 +21,7 @@
     --sidebar-border: #e5e5e5;
     --sidebar-active: #e5e5e5;
     --auth-card-bg: #ffffff;
+    --text-secondary: #666666;
 }
 
 /* Dark theme */
@@ -540,6 +541,20 @@ body {
     font-family: 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
     border-color: #6c5ce7 !important;
     background-color: rgba(108, 92, 231, 0.05) !important;
+}
+
+/* Developer credit styling */
+.developer-credit {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    padding: 5px;
+    font-style: italic;
+}
+
+.dark-theme .developer-credit {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Responsive adjustments */

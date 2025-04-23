@@ -1,6 +1,6 @@
-# Arogga FAQ Assistant
+# Shamim FAQ Assistant
 
-A Flask-based web application that uses the Gemini Flash 2.0 API to provide answers to frequently asked questions about Arogga's services, particularly focusing on Arogga Cash, promotions, and return policies.
+A Flask-based web application that uses the Gemini Flash 2.0 API to provide answers to frequently asked questions about Shamim's services, particularly focusing on Shamim's experience, skills, and projects in machine learning and software development.
 
 ## Features
 

@@ -1,4 +1,4 @@
-// Main JavaScript for Arogga FAQ Assistant
+// Main JavaScript for Shamim FAQ Assistant
 
 // Global variables
 let currentConversationId = null;
@@ -178,7 +178,7 @@ function loadConversation(conversationId) {
             
             // If no messages, add welcome message
             if (conversation.messages.length === 0) {
-                const welcomeText = "Hello! I'm Arogga FAQ Assistant. How can I help you today?";
+                const welcomeText = "Hello! I'm Shamim FAQ Assistant. Ask me anything about Shamim Md. Jony's experience, skills, and projects in machine learning and software development.";
                 addMessageToUI(welcomeText, false, true);
             }
             
@@ -224,7 +224,7 @@ function createNewConversation() {
             chatBody.appendChild(welcomeContainer);
             
             // Add welcome message with typewriter effect
-            const welcomeText = "Hello! I'm Arogga FAQ Assistant. How can I help you today?";
+            const welcomeText = "Hello! I'm Shamim FAQ Assistant. Ask me anything about Shamim Md. Jony's experience, skills, and projects in machine learning and software development.";
             typeWriter(welcomeMessage, welcomeText);
             
             // Refresh conversation list
@@ -321,6 +321,10 @@ function askQuestion(question) {
     if (!question.trim()) return;
     
     console.log("Asking question:", question);
+    
+    // Check if the question contains Bengali characters
+    const containsBengali = /[\u0980-\u09FF]/.test(question);
+    console.log("Contains Bengali:", containsBengali);
     
     // Add user message to UI
     addMessageToUI(question, true);
@@ -483,6 +487,24 @@ function submitQuestion() {
     if (question) {
         askQuestion(question);
         questionInput.value = '';
+    } else {
+        // Show custom error message for empty input
+        questionInput.classList.add('is-invalid');
+        
+        // Create error message if it doesn't exist
+        let errorMessage = document.getElementById('questionInputError');
+        if (!errorMessage) {
+            errorMessage = document.createElement('div');
+            errorMessage.id = 'questionInputError';
+            errorMessage.className = 'invalid-feedback';
+            errorMessage.textContent = 'Please enter a question';
+            questionInput.parentNode.appendChild(errorMessage);
+        }
+        
+        // Remove error after 3 seconds
+        setTimeout(() => {
+            questionInput.classList.remove('is-invalid');
+        }, 3000);
     }
     
     return false;
@@ -490,7 +512,7 @@ function submitQuestion() {
 
 // Initialize event listeners when the document is ready
 $(document).ready(function() {
-    console.log("Document ready, initializing Arogga FAQ Assistant");
+    console.log("Document ready, initializing Shamim FAQ Assistant");
     
     // Initialize theme
     initTheme();
@@ -520,6 +542,19 @@ $(document).ready(function() {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             submitQuestion();
+        }
+    });
+    
+    // Bengali text detection
+    const questionInput = document.getElementById('questionInput');
+    questionInput.addEventListener('input', function() {
+        const text = this.value;
+        const containsBengali = /[\u0980-\u09FF]/.test(text);
+        
+        if (containsBengali) {
+            this.classList.add('bengali-input');
+        } else {
+            this.classList.remove('bengali-input');
         }
     });
 });

@@ -20,7 +20,7 @@ app.secret_key = os.getenv("SECRET_KEY", secrets.token_hex(16))
 
 # Database setup
 def get_db_connection():
-    conn = sqlite3.connect('arogga_faq.db')
+    conn = sqlite3.connect('shamim_faq.db')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -91,67 +91,180 @@ def is_logged_in():
 
 # FAQ data
 faq_data = """
-Arogga Cash
-What is arogga cash?
-This is a virtual wallet to store arogga Cash in your account.
+About Shamim
+Who is Shamim Md. Jony?
+Shamim Md. Jony is a passionate machine learning engineer and software developer from Chittagong, Bangladesh. With a strong academic background and hands-on experience in AI, he specializes in building scalable, real-world applications using modern ML and LLM technologies.
 
-How do I check my arogga cash balance?
-You can check your arogga cash in Account screen.
+What is your current position?
+I am currently working as a Software Engineer at Prachine Bangla Ecommerce Limited since November 2024.
 
-When will the arogga money expire?
-Any arogga Cash deposited in your arogga wallet through returns will never expire. At times, our marketing team may deposit promotional cash which will have an expiry that is communicated to you via an SMS.
+What are your responsibilities at Prachine Bangla Ecommerce Limited?
+My key responsibilities include:
+- Managing the main AWS Lightsail server infrastructure.
+- Developing and scaling e-commerce solutions to support high traffic and large product catalogs.
+- Integrating AI-powered chatbots to enhance customer support and engagement.
+- Collaborating on API development and third-party service integrations such as payment gateways, shipping, and more.
 
-Can I add money to my arogga cash?
-No, you are unable to transfer or add money to your arogga cash.
+How do you handle the server infrastructure for Prachine Bangla Ecommerce Limited?
+I am responsible for managing the main AWS Lightsail server, ensuring its smooth operation and scalability to accommodate a large e-commerce platform.
 
-How can I redeem my arogga cash?
-If you have any money in your arogga cash, it will be automatically deducted from your next order amount and you will only have to pay for the balance amount (if any).
+What kind of e-commerce solutions do you develop and scale?
+I work on developing solutions that support high traffic, optimize the browsing experience, and scale the system to manage a large product catalog effectively.
 
-Can I transfer money from my arogga cash to the bank account?
-No, you are unable to transfer money from your arogga cash to the bank account.
+What role do AI-powered chatbots play in your work?
+I integrate AI-powered chatbots into our platform to improve customer support, automate responses, and enhance engagement with users.
 
-How much arogga money can I redeem in an order?
-There is no limit for redemption of arogga cash
+Do you work with third-party services?
+Yes, I collaborate on API development and integrate third-party services such as payment gateways and shipping solutions into the e-commerce platform.
 
-Payment Options
-What payment methods does Arogga accept?
-Arogga offers both Cash on Delivery (COD) and online payment options. Online payment methods include bKash, Nagad, and credit/debit cards. Additionally, Arogga offers an "Arogga Cash" virtual wallet where you can accumulate cashback that will be automatically deducted from future orders.
+What industries or domains has he worked in?
+Shamim has worked primarily in the e-commerce industry, with strong contributions to:
+- AI-enhanced online shopping experiences
+- Chatbot integrations
+- Sentiment analysis in the airline industry
+- Hate speech detection in Bangla language content
 
-What online payment methods are available?
-Arogga accepts several online payment methods including:
-1. bKash: A popular mobile payment platform in Bangladesh.
-2. Nagad: Another mobile payment platform widely used in Bangladesh.
-3. Credit/Debit Cards: Arogga accepts major credit and debit cards.
-4. Arogga Cash: A virtual wallet where you can accumulate cashback. This cashback is automatically deducted from your next order.
+What real-world AI applications has he built?
+- Smart FAQ Chatbot: Uses LangChain and LLMs to answer user queries intelligently.
+- E-commerce Assistant: AI system to help customers find products faster and improve UX.
+- Sentiment Classifier: Applied deep learning to analyze customer sentiments about airlines.
+- Hate Speech Detector: Identifies offensive language in Bangla using ML/NLP techniques.
 
-Can I pay cash when my order is delivered?
-Yes, Arogga offers Cash on Delivery (COD) option where customers can pay for their order in cash when it's delivered.
+What experience does he have with cloud services?
+He is skilled in deploying and managing models and services on cloud platforms, especially:
+- AWS Lightsail: Server management for high-traffic eCommerce.
+- Google Cloud: Used for ML model hosting and experimentation.
 
-How does Arogga Cash work with payments?
-Customers cannot add money to their Arogga Cash, transfer it to a bank account, or use it for other orders. If a customer has Arogga Cash, it will be automatically deducted from the order amount during checkout. For orders where the customer chooses "cash on delivery", they can only withdraw the amount back via bKash.
+What tools and frameworks is he comfortable with?
+- LangChain, Hugging Face, PyTorch, TensorFlow
+- Flask, FastAPI (for APIs and ML model serving)
+- Laravel & PHP (for backend systems)
+- MongoDB, MySQL, SQLite (for data management)
 
-Promotions
-How do I apply a coupon code on my order?
-You can apply a coupon on the cart screen while placing an order. If you are getting a message that the coupon code has failed to apply, it may be because you are not eligible for the offer.
+Professional Experience
+What is his role at Prachine Bangla Ecommerce Ltd.?
+As a Software Engineer, Shamim is:
+- Maintaining and scaling AWS-based eCommerce infrastructure
+- Creating AI-powered features like chatbots
+- Integrating APIs for payment, shipping, etc.
+- Leading tech improvements for better performance and UX
 
-Does arogga offers return of the medicine?
-Yes, Arogga does accept returns of the medicine from customer. We have 7 days return policy for eligible items. Please check our return section for more details.
+What kind of opportunities is he seeking?
+He is actively looking for challenging projects or remote roles focused on:
+- Large Language Models (LLMs)
+- Advanced machine learning applications
+- AI innovation in real-world products
 
-Return
-How does Arogga's return policy work?
-Arogga offers a flexible return policy for items ordered with us. Under this policy, unopened and unused items must be returned within 7 days from the date of delivery. The return window will be listed in the returns section of the order, once delivered. Items are not eligible for return under the following circumstances: - If items have been opened, partially used or disfigured. Please check the package carefully at the time of delivery before opening and using. - If the item's packaging/box or seal has been tampered with. Do not accept the delivery if the package appears to be tampered with. - If it is mentioned on the product details page that the item is non-returnable. - If the return window for items in an order has expired. No items can be returned after 7 days from the the delivery date. - If any accessories supplied with the items are missing. - If the item does not have the original serial number/UPC number/barcode affixed, which was present at the time of delivery. - If there is any damage/defect which is not covered under the manufacturer's warranty. - If the item is damaged due to visible misuse. - Any refrigerated items like insulin or products that are heat sensitive are non-returnable. - Items related to baby care, food & nutrition, healthcare devices and sexual wellness such as but not limited to diapers, health drinks, health supplements, glucometers, glucometer strips/lancets, health monitors, condoms, pregnancy/fertility kits, etc.
+Qualifications
+What makes Shamim a strong candidate for ML roles?
+- Strong academic foundation (CGPA 3.88 in BSc)
+- Real-world deployment experience
+- Demonstrated success in both backend and AI development
+- Certification from DeepLearning.AI, a leader in ML education
 
-Do you sell medicine strips in full or it can be single units too?
-We sell in single units to give customers flexibility in selecting specific amounts of medicine required. We provide single units of medicine as our pharmacist can cut strips.
+What's unique about his AI approach?
+Shamim blends practical deployment skills with theoretical understanding. He's not just focused on building models, but also on ensuring they work in production and deliver real business value.
 
-I have broken the seal, can I return it?
-No, you can not return any items with a broken seal.
+Where can I see his work or contributions?
+- GitHub: github.com/shamimjony1000
+- LinkedIn: linkedin.com/in/shamim-jony
 
-Can I return medicine that is partially consumed?
-No, you cannot return partially consumed items. Only unopened items that have not been used can be returned.
+Location
+ADDRESS:
+Khulshi-1, Chittagong, Bangladesh
 
-Can I ask for a return if the strip is cut?
-We provide customers with the option of purchasing medicines as single units. Even if ordering a single tablet of paracetamol, we can deliver that. It is common to have medicines in your order with some strips that are cut. If you want to get a full strip in your order, please order a full strip amount and you will get it accordingly. If you do not order a full strip, you will get cut pieces. If you have ordered 4 single units which are cut pieces and want to return, all 4 pieces must be returned. We do not allow partial return of 1 or 2 pieces.
+Contact
+How can I contact Shamim for professional opportunities?
+You can reach out to Shamim through his LinkedIn profile at linkedin.com/in/shamim-jony or via email. He is open to discussing remote work opportunities, consulting projects, and collaborations in the field of machine learning and AI development.
+
+শামীম মো. জনি কে?
+শামীম মো. জনি চট্টগ্রাম, বাংলাদেশের একজন উদ্যমী মেশিন লার্নিং প্রকৌশলী এবং সফটওয়্যার ডেভেলপার। কৃত্রিম বুদ্ধিমত্তায় একটি শক্তিশালী একাডেমিক পটভূমি এবং বাস্তব অভিজ্ঞতা নিয়ে, তিনি আধুনিক এমএল এবং এলএলএম প্রযুক্তি ব্যবহার করে স্কেলেবল, বাস্তব-বিশ্বের অ্যাপ্লিকেশন তৈরিতে বিশেষজ্ঞ।
+
+আপনার বর্তমান পদ কি?
+আমি বর্তমানে ২০২৪ সালের নভেম্বর মাস থেকে প্রাচীনে বাংলা ই-কমার্স লিমিটেডে সফটওয়্যার প্রকৌশলী হিসেবে কর্মরত আছি।
+
+প্রাচীনে বাংলা ই-কমার্স লিমিটেডে আপনার দায়িত্বগুলো কী কী?
+আমার প্রধান দায়িত্বগুলোর মধ্যে রয়েছে:
+
+প্রধান AWS লাইটসেল সার্ভার অবকাঠামো পরিচালনা করা।
+উচ্চ ট্র্যাফিক এবং বৃহৎ পণ্য ক্যাটালগ সমর্থন করার জন্য ই-কমার্স সলিউশন তৈরি এবং স্কেল করা।
+গ্রাহক সহায়তা এবং সম্পৃক্ততা বাড়াতে এআই-চালিত চ্যাটবট সংহত করা।
+API ডেভেলপমেন্ট এবং তৃতীয় পক্ষের পরিষেবা যেমন পেমেন্ট গেটওয়ে, শিপিং এবং আরও অনেক কিছুর সাথে সহযোগিতা করা।
+আপনি প্রাচীনে বাংলা ই-কমার্স লিমিটেডের জন্য সার্ভার অবকাঠামো কীভাবে সামলান?
+আমি প্রধান AWS লাইটসেল সার্ভার পরিচালনার জন্য দায়ী, যা একটি বৃহৎ ই-কমার্স প্ল্যাটফর্মের মসৃণ পরিচালনা এবং স্কেলেবিলিটি নিশ্চিত করে।
+
+আপনি কী ধরনের ই-কমার্স সলিউশন তৈরি এবং স্কেল করেন?
+আমি এমন সলিউশন তৈরিতে কাজ করি যা উচ্চ ট্র্যাফিক সমর্থন করে, ব্রাউজিংয়ের অভিজ্ঞতা অপ্টিমাইজ করে এবং কার্যকরভাবে একটি বৃহৎ পণ্য ক্যাটালগ পরিচালনা করার জন্য সিস্টেমকে স্কেল করে।
+
+আপনার কাজে এআই-চালিত চ্যাটবট কী ভূমিকা পালন করে?
+গ্রাহক সহায়তা উন্নত করতে, স্বয়ংক্রিয় প্রতিক্রিয়া জানাতে এবং ব্যবহারকারীদের সাথে সম্পৃক্ততা বাড়াতে আমি আমাদের প্ল্যাটফর্মে এআই-চালিত চ্যাটবট সংহত করি।
+
+আপনি কি তৃতীয় পক্ষের পরিষেবাগুলির সাথে কাজ করেন?
+হ্যাঁ, আমি API ডেভেলপমেন্টে সহযোগিতা করি এবং পেমেন্ট গেটওয়ে এবং শিপিং সলিউশনের মতো তৃতীয় পক্ষের পরিষেবাগুলিকে ই-কমার্স প্ল্যাটফর্মে সংহত করি।
+
+তিনি কোন শিল্প বা ডোমেইনগুলিতে কাজ করেছেন?
+শামীম প্রাথমিকভাবে ই-কমার্স শিল্পে কাজ করেছেন, যেখানে তার শক্তিশালী অবদান রয়েছে:
+
+এআই-বর্ধিত অনলাইন শপিং অভিজ্ঞতা
+চ্যাটবট ইন্টিগ্রেশন
+এয়ারলাইন শিল্পে সেন্টিমেন্ট বিশ্লেষণ
+বাংলা ভাষার সামগ্রীতে বিদ্বেষপূর্ণ বক্তব্য সনাক্তকরণ
+তিনি বাস্তব-বিশ্বে কী কী এআই অ্যাপ্লিকেশন তৈরি করেছেন?
+
+স্মার্ট FAQ চ্যাটবট: ব্যবহারকারীর প্রশ্নের বুদ্ধিদীপ্ত উত্তর দিতে ল্যাংচেইন এবং এলএলএম ব্যবহার করে।
+ই-কমার্স সহকারী: গ্রাহকদের দ্রুত পণ্য খুঁজে পেতে এবং UX উন্নত করতে সাহায্য করার জন্য এআই সিস্টেম।
+সেন্টিমেন্ট ক্লাসিফায়ার: এয়ারলাইনস সম্পর্কে গ্রাহকের অনুভূতি বিশ্লেষণ করতে ডিপ লার্নিং প্রয়োগ করা হয়েছে।
+বিদ্বেষপূর্ণ বক্তব্য সনাক্তকারী: ML/NLP কৌশল ব্যবহার করে বাংলা ভাষায় আপত্তিকর ভাষা চিহ্নিত করে।
+ক্লাউড পরিষেবাগুলির সাথে তার কী অভিজ্ঞতা আছে?
+তিনি ক্লাউড প্ল্যাটফর্মে, বিশেষ করে মডেল এবং পরিষেবা স্থাপন এবং পরিচালনার ক্ষেত্রে দক্ষ:
+
+AWS লাইটসেল: উচ্চ-ট্র্যাফিক ই-কমার্সের জন্য সার্ভার ব্যবস্থাপনা।
+গুগল ক্লাউড: ML মডেল হোস্টিং এবং পরীক্ষণের জন্য ব্যবহৃত।
+তিনি কোন সরঞ্জাম এবং ফ্রেমওয়ার্কের সাথে স্বাচ্ছন্দ্যবোধ করেন?
+
+ল্যাংচেইন, হাগিং ফেস, পাইটর্চ, টেনসরফ্লো
+ফ্লাস্ক, ফাস্টএপিআই (API এবং ML মডেল পরিবেশনের জন্য)
+লারাভেল ও পিএইচপি (ব্যাকেন্ড সিস্টেমের জন্য)
+মঙ্গোডিবি, মাইএসকিউএল, এসকিউলাইট (ডেটা ব্যবস্থাপনার জন্য)
+পেশাগত অভিজ্ঞতা
+
+প্রাচীনে বাংলা ই-কমার্স লিমিটেডে তার ভূমিকা কী?
+সফটওয়্যার প্রকৌশলী হিসেবে, শামীম:
+
+AWS-ভিত্তিক ই-কমার্স অবকাঠামোর রক্ষণাবেক্ষণ ও স্কেলিং করছেন
+চ্যাটবটের মতো এআই-চালিত বৈশিষ্ট্য তৈরি করছেন
+পেমেন্ট, শিপিং ইত্যাদির জন্য API সংহত করছেন
+উন্নত কর্মক্ষমতা এবং UX-এর জন্য প্রযুক্তিগত উন্নতির নেতৃত্ব দিচ্ছেন
+তিনি কী ধরনের সুযোগ খুঁজছেন?
+তিনি সক্রিয়ভাবে চ্যালেঞ্জিং প্রকল্প বা দূরবর্তী ভূমিকা খুঁজছেন যা মূলত:
+
+বৃহৎ ভাষা মডেল (LLMs)
+উন্নত মেশিন লার্নিং অ্যাপ্লিকেশন
+বাস্তব-বিশ্বের পণ্যগুলিতে এআই উদ্ভাবনের উপর দৃষ্টি নিবদ্ধ করে।
+যোগ্যতা
+
+কী কারণে শামীম এমএল ভূমিকার জন্য একজন শক্তিশালী প্রার্থী?
+
+শক্তিশালী একাডেমিক ভিত্তি (বিএসসি-তে ৩.৮৮ সিজিপিএ)
+বাস্তব-বিশ্বে স্থাপনার অভিজ্ঞতা
+ব্যাকেন্ড এবং এআই ডেভেলপমেন্ট উভয় ক্ষেত্রেই প্রমাণিত সাফল্য
+ডিপলার্নিং.এআই, এমএল শিক্ষার একটি শীর্ষস্থানীয় প্রতিষ্ঠান থেকে সার্টিফিকেশন
+তার এআই পদ্ধতির অনন্যতা কী?
+শামীম তাত্ত্বিক বোঝার সাথে ব্যবহারিক স্থাপনার দক্ষতার মিশ্রণ ঘটান। তিনি কেবল মডেল তৈরি করার উপরই মনোযোগ দেন না, বরং সেগুলি যাতে উৎপাদনে কাজ করে এবং প্রকৃত ব্যবসায়িক মূল্য সরবরাহ করে তাও নিশ্চিত করেন।
+
+আমি তার কাজ বা অবদান কোথায় দেখতে পারি?
+
+GitHub: github.com/shamimjony1000
+LinkedIn: linkedin.com/in/shamim-jony
+অবস্থান
+
+ঠিকানা:
+খুলশী-১, চট্টগ্রাম, বাংলাদেশ
+
+যোগাযোগ
+
+পেশাদার সুযোগের জন্য আমি কীভাবে শামীমের সাথে যোগাযোগ করতে পারি?
+আপনি তার লিঙ্কডইন প্রোফাইলের মাধ্যমে linkedin.com/in/shamim-jony অথবা ইমেলের মাধ্যমে শামীমের সাথে যোগাযোগ করতে পারেন। তিনি দূরবর্তী কাজের সুযোগ, কনসাল্টিং প্রকল্প এবং মেশিন লার্নিং ও এআই ডেভেলপমেন্টের ক্ষেত্রে সহযোগিতার বিষয়ে আলোচনা করতে আগ্রহী।
 """
 
 # Function to get response from Gemini
@@ -189,11 +302,21 @@ def get_gemini_response(question):
         safety_settings=safety_settings
     )
     
+    # Check if the question is in Bengali (contains Bengali Unicode characters)
+    is_bengali = any('\u0980' <= c <= '\u09FF' for c in question)
+    
     prompt = f"""
-    You are a helpful customer service assistant for Arogga, a medicine delivery service.
-    Answer the following question based on the FAQ information provided below.
-    If the question is not directly addressed in the FAQ, use the information to provide the most relevant answer.
-    If the question is completely unrelated to the FAQ topics, politely inform that you can only answer questions related to Arogga's services.
+    You are a helpful customer service assistant for Shamim Md. Jony, a machine learning engineer and software developer.
+
+    Answer the following questions based on the FAQ information provided below.
+
+    If the question is directly addressed in the FAQ, give a clear and accurate answer.
+
+    If the question is not directly addressed, but related to his skills or services, use the FAQ context to provide the most relevant response.
+
+    If the question is unrelated to Shamim Md. Jony's professional profile (such as topics outside AI, software development, LLMs, etc.), politely inform the user that you can only answer questions related to Shamim Md. Jony's services and experience.
+    
+    IMPORTANT: If the user's question is in Bengali, you MUST respond in Bengali. Look for the Bengali translations in the FAQ data and use those for your response.
     
     FAQ INFORMATION:
     {faq_data}

@@ -1,4 +1,4 @@
-/* Main Styles for Arogga FAQ Assistant - ChatGPT Style */
+/* Main Styles for Shamim FAQ Assistant - ChatGPT Style */
 
 /* CSS Variables for theming */
 :root {
@@ -533,6 +533,13 @@ body {
 .send-btn svg {
     width: 18px;
     height: 18px;
+}
+
+/* Bengali text input styling */
+.bengali-input {
+    font-family: 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
+    border-color: #6c5ce7 !important;
+    background-color: rgba(108, 92, 231, 0.05) !important;
 }
 
 /* Responsive adjustments */

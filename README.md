@@ -9,6 +9,8 @@ A Flask-based web application that uses the Gemini Flash 2.0 API to provide answ
 - Pre-defined suggestion chips for common questions
 - Responsive design that works on desktop and mobile devices
 
+## Live Demo
+https://smartfaq.parviit.com
 ## Setup Instructions
 
 ### Prerequisites
